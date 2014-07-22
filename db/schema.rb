@@ -19,10 +19,13 @@ ActiveRecord::Schema.define(version: 20140721233741) do
   create_table "blags", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.string   "slug"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "blags", ["slug"], name: "index_blags_on_slug", using: :btree
 
   create_table "blagtags", force: true do |t|
     t.integer  "blag_id"
@@ -47,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140721233741) do
 
   create_table "users", force: true do |t|
     t.string   "username"
+    t.string   "password_digest"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"

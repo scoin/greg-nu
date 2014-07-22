@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'blags#index'
 
     resources :users, only: [:show]
-    resources :blags, only: [:index, :show]
-
+    get '/g', to: 'blags#index'
+    get '/g/:slug', to: 'blags#show'
 
     scope '/admin' do 
       resources :users, only: [:index, :edit, :update, :new, :create] 

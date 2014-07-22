@@ -7,5 +7,6 @@ class CreateBlags < ActiveRecord::Migration
     	t.references :user
       t.timestamps
     end
+    add_index(:blags, :slug)
   end
 end

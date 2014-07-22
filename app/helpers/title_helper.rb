@@ -1,6 +1,6 @@
 module TitleHelper
 
-	def set_title(title)
+	def set_title(title = @blag.title)
 		@title = title
 	end
 
