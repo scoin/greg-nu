@@ -27,7 +27,7 @@ class BlagsController < ActionController::Base
 	def create
 		@blag = Blag.new(blag_params(params[:blag]))
 		@blag.save
-		redirect_to add_images_path
+		redirect_to add_images_path id: @blag.id
 	end
 
 	def add_images
