@@ -1,3 +1,8 @@
 -@blags.each do |blag|
 	-@blag = blag
-	=render @blag
+	=render partial: @blag, locals:{b_len: 140}
+	=render "blaglink"
+
+/ =render partial: "blag", collection: @blags, locals:{b_len: 140}
+/ 	=render "blaglink"
+/ wanted to do this but also want to keep links out of partial

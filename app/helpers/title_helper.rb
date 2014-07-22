@@ -5,7 +5,8 @@ module TitleHelper
 	end
 
 	def get_title
-		"-- "+@title
+		@title ||= ''
+		"# "+@title
 	end
 
 end

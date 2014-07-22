@@ -11,7 +11,7 @@ class BlagsController < ActionController::Base
 
 	def show
 		@blag = Blag.find_by(slug: params[:slug])
-		set_title
+		set_title(@blag.title)
 	end
 
 	def edit
