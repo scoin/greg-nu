@@ -21,13 +21,25 @@ class BlagsController < ActionController::Base
 	end
 
 	def new
+		@blag = Blag.new
 	end
 
 	def create
+		@blag = Blag.new(blag_params(params[:blag]))
+		@blag.save
+		redirect_to add_images_path
+	end
+
+	def add_images
+
 	end
 
 	def destroy
 	end
 
+	private
 
+	def blag_params(params)
+    params.permit(:title, :content)
+  end
 end
