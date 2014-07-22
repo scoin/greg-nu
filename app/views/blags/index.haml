@@ -1,5 +1,6 @@
 -@blags.each do |blag|
 	-@blag = blag
+	-@image = @blag.images.first unless @blag.images.empty?
 	=render partial: @blag, locals:{b_len: 140}
 	=render "blaglink"
 
