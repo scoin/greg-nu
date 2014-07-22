@@ -1,5 +1,8 @@
 class UsersController < ActionController::Base
 
+	include 'TitleHelper'
+	layout "application.haml"
+
 	def index
 
 	end
