@@ -1,7 +1,7 @@
 class UsersController < ActionController::Base
 
 	def index
-		
+
 	end
 
 	def show
@@ -25,6 +25,10 @@ class UsersController < ActionController::Base
 	end
 
 	def login
+
+	end
+
+	def auth
 
 	end
 
