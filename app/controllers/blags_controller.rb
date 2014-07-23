@@ -2,14 +2,11 @@ class BlagsController < ActionController::Base
 	layout "application.haml"
 	include TitleHelper
 	include SearchHelper
+	include PageHelper
 
 	def index
-		params[:n] ||= 0
-		@next_page = params[:n].to_i + 1
-		@prev_page = params[:n].to_i - 1
-		post_view_count = 4
-		to_display = params[:n].to_i * post_view_count
-		@blags = Blag.includes(:images, :tags).limit(post_view_count).offset(to_display).order('updated_at desc')
+		get_pages(params[:n].to_i)
+		@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('updated_at desc')
 	end
 
 	def show
@@ -46,9 +43,13 @@ class BlagsController < ActionController::Base
 	def search
 		term = "%#{params[:search]}%"
 		term = term.gsub(/ /, '-')
-		@blags = Blag.where("slug like ?", term).includes(:images, :tags).limit(4)
-		if @blags
+		get_pages(params[:n].to_i)
+		@blags = Blag.where("slug like ?", term).includes(:images, :tags).limit(@post_view_count).order('updated_at desc')
+		if !@blags.empty?
 			render partial: "blag", collection: @blags
+		else
+			@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('updated_at desc')
+			render partial: "index"
 		end
 	end
 

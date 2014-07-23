@@ -8,9 +8,10 @@ SEARCH.go = function(){
 SEARCH.enter = function(k){
 		$.get('/search', {search: $("#search").val()}, 'json')
 			.done(function(data){
-			if(data != undefined){
-				$('#main').html(data);
-			}
+				console.log(data)
+				if(data != ""){
+					$('#main').html(data);
+				}
 			})
 }
 
