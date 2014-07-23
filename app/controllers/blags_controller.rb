@@ -5,7 +5,9 @@ class BlagsController < ActionController::Base
 	include PageHelper
 
 	def index
-		get_pages(params[:n].to_i)
+		n ||= params[:n].to_i
+		n ||= 0
+		get_pages(n)
 		@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('updated_at desc')
 	end
 
@@ -45,11 +47,12 @@ class BlagsController < ActionController::Base
 		term = term.gsub(/ /, '-')
 		get_pages(params[:n].to_i)
 		@blags = Blag.where("slug like ?", term).includes(:images, :tags).limit(@post_view_count).order('updated_at desc')
-		if !@blags.empty?
+		unless @blags.empty?
 			render partial: "blag", collection: @blags
 		else
+			puts "i'm here"
 			@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('updated_at desc')
-			render partial: "index"
+			render "index", layout: false, locals:{n: params[:n]}
 		end
 	end
 
