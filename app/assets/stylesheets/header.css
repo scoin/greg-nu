@@ -1,9 +1,17 @@
 body{
-	
+
 }
 
 .container{
 	width: 100%;
+}
+
+header{
+	border-bottom-width: .1em;
+	border-bottom-style: inset;
+	border-bottom-color: #403B39;
+	padding-bottom: .5em;
+	margin-bottom: .5em;
 }
 
 #search{
