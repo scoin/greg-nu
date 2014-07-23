@@ -1,4 +1,11 @@
 .blag_post{
-	margin: 0 auto;
+	margin: 0 auto 1em auto;
 	text-align: center;
+	border: ##403B39 1px inset;
+	border-radius: 1px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+
+  	width: 80%;
+  	height: 10em;
+
 }
