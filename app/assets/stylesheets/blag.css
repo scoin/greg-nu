@@ -16,10 +16,32 @@
     text-align: right;
 }
 
+.next_button{
+	position: relative;
+	margin-top: 4em;
+}
+
+.next{
+	position:absolute;
+	bottom: 0;
+	right: 0;
+	background-color: #F5F5F5;
+    background-color: rgba(245,245,245,0.6);
+    text-align: right;
+}
+
 .blag_title h2{
 	display: inline-block;
 	color: #F7F7F7;
 	font-size: 2.5em;
 	font-family: 'Roboto Slab', serif;
 	margin-right: 2em;
+}
+
+.next_button h2{
+	display: inline-block;
+	color: #454342;
+	font-size: 2.5em;
+	font-family: 'Roboto Slab', serif;
+	margin-right: 1.5em;
 }

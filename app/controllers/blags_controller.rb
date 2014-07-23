@@ -3,10 +3,11 @@ class BlagsController < ActionController::Base
 	include TitleHelper
 
 	def index
-		params[:n] ||= 1
-		post_view_count = 10
+		params[:n] ||= 0
+		@next_page = params[:n] + 1
+		post_view_count = 4
 		to_display = params[:n] * post_view_count
-		@blags = Blag.includes(:images, :tags).limit(to_display).offset(to_display - post_view_count).order('updated_at desc')
+		@blags = Blag.includes(:images, :tags).limit(post_view_count).offset(to_display).order('updated_at desc')
 	end
 
 	def show
@@ -15,9 +16,11 @@ class BlagsController < ActionController::Base
 	end
 
 	def edit
+
 	end
 
 	def update
+
 	end
 
 	def new

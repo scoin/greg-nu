@@ -1,13 +1,16 @@
 var SEARCH = SEARCH || {}
-SEARCH.go = function(){
+SEARCH.clear = function(){
 	$('#search').val('')
+}
+SEARCH.go = function(){
 	$('#search').focus();
 }
 
 $(document).ready(function(){
+	SEARCH.clear();
 	SEARCH.go();
 
 	$('#search').blur(function() {
-	  SEARCH.go();
+	  SEARCH.clear();
 	});
 })
