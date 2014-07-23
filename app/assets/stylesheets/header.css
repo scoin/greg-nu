@@ -1,3 +1,11 @@
+body{
+	
+}
+
+.container{
+	width: 100%;
+}
+
 #search{
 	border: none;
 	height: auto;
@@ -34,5 +42,9 @@ textarea:focus, input:focus{
    letter-spacing: .5em;
 }
 
-body{
+#whoiam{
+	margin: 0 auto;
+	width: 25%;
+	text-align: center;
+	font-size: .8em;
 }
