@@ -7,3 +7,10 @@
   	width: 80%;
   	height: 10em;
 }
+
+.blag h2{
+	color: black;
+	font-size: 4em;
+	-webkit-text-fill-color: black;
+    -webkit-text-stroke: .02em white;
+}

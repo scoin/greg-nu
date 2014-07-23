@@ -1,8 +1,5 @@
 .blag_title
 	%h2=@blag.title
--unless @image.nil?
-	.blag_image
-		%img{src:'#{@image.url}'}
 
 .blag_content
 	%p.content=@blag.content[0..b_len]

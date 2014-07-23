@@ -1,6 +1,6 @@
 module ViewHelper 
-	def style_helper
-		"background-image:url('#{@image}')" if @image
+	def bgimage(image)
+		"background-image:url('#{image}')" if image
 	end
 
 end
