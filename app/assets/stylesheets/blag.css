@@ -70,7 +70,7 @@
 	font-family: 'Roboto Slab', serif;
 	font-weight: 400;
 	font-size: 1.5em;
-	overflow: hidden;
+	overflow: auto;
 	padding: .4em 10% .4em 10%;
 	line-height: 1.4em;
 	margin-bottom: 4em;
