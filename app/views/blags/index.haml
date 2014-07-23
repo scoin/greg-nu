@@ -1,7 +1,7 @@
 -@blags.each do |blag|
 	-@blag = blag
 	-@image = @blag.images.first unless @blag.images.empty?
-	.blag_post
+	%div[@blag]{style: style_helper}
 		=render partial: @blag, locals:{b_len: 140}
 		=render "blaglink"
 

@@ -1,9 +1,9 @@
 body{
-
+	max-width: 1200px;
 }
 
 .container{
-	width: 100%;
+	background-color: #FFF;
 }
 
 header{
