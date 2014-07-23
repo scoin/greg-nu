@@ -1,9 +1,3 @@
--@blags.each do |blag|
-	-@blag = blag
-	-image = @blag.images.first.url unless @blag.images.empty?
-	%a{href:"/g/#{@blag.slug}"}
-		=render partial: @blag, locals:{image: image}
+=render partial: "blag", collection: @blags
 
-/ =render partial: "blag", collection: @blags, locals:{b_len: 140}
-/ 	=render "blaglink"
-/ wanted to do this but also want to keep links out of partial
+/ locals:{image: image}

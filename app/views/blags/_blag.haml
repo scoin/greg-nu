@@ -1,3 +1,5 @@
-%div[@blag]{style: bgimage(image)}
-	.blag_title
-		%h2=@blag.title.downcase
+-image = blag.images.first.url unless blag.images.empty?
+%a{href:"/g/#{blag.slug}"}
+	%div[blag]{style: bgimage(image)}
+		.blag_title
+			%h2=blag.title.downcase
