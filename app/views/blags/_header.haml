@@ -1,6 +1,6 @@
 %header
 	%h1
-		=form_tag("/search", method: "get") do
+		=form_tag("/search", method: "get", id: "headsearch") do
 			=text_field_tag :search, nil, placeholder: "greg.nu"
 	#thelogoisaform
 	#whoiam<

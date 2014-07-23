@@ -1,6 +1,7 @@
 class BlagsController < ActionController::Base
 	layout "application.haml"
 	include TitleHelper
+	include SearchHelper
 
 	def index
 		params[:n] ||= 0
@@ -13,7 +14,7 @@ class BlagsController < ActionController::Base
 
 	def show
 		@blag = Blag.find_by(slug: params[:slug])
-		@paragraphs = @blag.content.split("\n")
+		@paragraphs = get_paragraphs
 		set_title(@blag.title)
 	end
 
@@ -40,6 +41,15 @@ class BlagsController < ActionController::Base
 	end
 
 	def destroy
+	end
+
+	def search
+		term = "%#{params[:search]}%"
+		term = term.gsub(/ /, '-')
+		@blags = Blag.where("slug like ?", term).includes(:images, :tags).limit(4)
+		if @blags
+			render partial: "blag", collection: @blags
+		end
 	end
 
 	private

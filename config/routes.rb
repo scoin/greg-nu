@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
     get '/g', to: 'blags#index'
     get '/g/:slug', to: 'blags#show'
+    get '/search', to: 'blags#search', as: 'search'
 
     scope '/admin' do 
       resources :users, only: [:index, :edit, :update, :new, :create] 
