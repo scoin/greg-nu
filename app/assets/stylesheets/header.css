@@ -37,12 +37,12 @@ textarea:focus, input:focus{
 }
 
 :-moz-placeholder { 
-   color: #454342;
+   font-color: #454342;
    letter-spacing: .5em;
 }
 
 ::-moz-placeholder { 
-   color: #454342;
+   font-color: #454342;
    letter-spacing: .5em;
 }
 
