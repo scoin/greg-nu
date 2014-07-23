@@ -5,6 +5,7 @@ class BlagsController < ActionController::Base
 	def index
 		params[:n] ||= 0
 		@next_page = params[:n].to_i + 1
+		@prev_page = params[:n].to_i - 1
 		post_view_count = 4
 		to_display = params[:n].to_i * post_view_count
 		@blags = Blag.includes(:images, :tags).limit(post_view_count).offset(to_display).order('updated_at desc')
@@ -12,6 +13,7 @@ class BlagsController < ActionController::Base
 
 	def show
 		@blag = Blag.find_by(slug: params[:slug])
+		@paragraphs = @blag.content.split("\n")
 		set_title(@blag.title)
 	end
 

@@ -46,6 +46,7 @@
 	color: #F7F7F7;
 	font-size: 2.5em;
 	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
 	margin-right: 2em;
 }
 
@@ -54,6 +55,7 @@
 	color: #454342;
 	font-size: 2.5em;
 	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
 }
 
 .prev h2{
@@ -61,4 +63,23 @@
 	color: #454342;
 	font-size: 2.5em;
 	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+}
+
+.blag_content{
+	font-family: 'Roboto Slab', serif;
+	font-weight: 400;
+	font-size: 1.5em;
+	overflow: hidden;
+	padding: .4em 10% .4em 10%;
+	line-height: 1.4em;
+	margin-bottom: 4em;
+}
+
+.blag_content p{
+	float: left;
+	text-indent: 4em;
+	margin-bottom: 1em;
+	background-color: #F7F7F7;
+	border-radius: 5em;
 }

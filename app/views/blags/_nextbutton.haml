@@ -1,10 +1,11 @@
-%a{href:"/?n=#{@next_page}"}
-	.next_button
-		-unless @next_page * 4 > Blag.all.count
+.next_button
+	-unless @next_page * 4 > Blag.all.count
+		%a{href:"/?n=#{@next_page}"}
 			.next
 				%h2<
 					next
-		-unless @next_page == 1
+	-unless @next_page == 1
+		%a{href:"/?n=#{@prev_page}"}
 			.prev
 				%h2<
 					prev

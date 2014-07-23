@@ -1,1 +1,3 @@
-=render partial: @blag, locals:{b_len: @blag.content.length}
+=render partial: @blag
+.blag_content<
+	=render partial: "paragraph", collection: @paragraphs
