@@ -1,16 +1,25 @@
 .blag{
+	position: relative;
 	margin: 0 auto 1em auto;
 	text-align: center;
-	border: #403B39 1px inset;
-	border-radius: 1px;
-	box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  	width: 80%;
+  	width: 100%;
   	height: 10em;
+  	text-decoration: none;
 }
 
-.blag h2{
-	color: black;
-	font-size: 4em;
-	-webkit-text-fill-color: black;
-    -webkit-text-stroke: .02em white;
+.blag_title{
+	position:absolute;
+	bottom: 1.5em;
+	right: 0;
+	background-color: #E0E0E0;
+    background-color: rgba(89,80,79,0.6);
+    text-align: right;
+}
+
+.blag_title h2{
+	display: inline-block;
+	color: #F7F7F7;
+	font-size: 2.5em;
+	font-family: 'Roboto Slab', serif;
+	margin-right: 2em;
 }

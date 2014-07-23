@@ -1,9 +1,8 @@
 -@blags.each do |blag|
 	-@blag = blag
 	-image = @blag.images.first.url unless @blag.images.empty?
-	%div[@blag]{style: bgimage(image)}
-		=render partial: @blag, locals:{b_len: 140}
-		=render "blaglink"
+	%a{href:"/g/#{@blag.slug}"}
+		=render partial: @blag, locals:{image: image}
 
 / =render partial: "blag", collection: @blags, locals:{b_len: 140}
 / 	=render "blaglink"

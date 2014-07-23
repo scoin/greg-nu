@@ -1,5 +1,3 @@
-.blag_title
-	%h2=@blag.title
-
-.blag_content
-	%p.content=@blag.content[0..b_len]
+%div[@blag]{style: bgimage(image)}
+	.blag_title
+		%h2=@blag.title.downcase
