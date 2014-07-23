@@ -8,7 +8,7 @@ class UsersController < ActionController::Base
 	end
 
 	def show
-
+		
 	end
 
 	def edit

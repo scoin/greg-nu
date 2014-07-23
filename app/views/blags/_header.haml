@@ -1,3 +1,6 @@
-%h1
-	g r e g . n u
-	
+%header
+	%h1
+		=form_tag("/search", method: "get") do
+			=text_field_tag :search, nil, placeholder: "greg.nu"
+	%h3
+		web developer / idea factory
