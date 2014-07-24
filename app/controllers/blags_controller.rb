@@ -45,14 +45,14 @@ class BlagsController < ActionController::Base
 	def search
 		term = "%#{params[:search]}%"
 		term = term.gsub(/ /, '-')
-		get_pages(params[:n].to_i)
+		n = params[:n].to_i
+		get_pages(n)
 		@blags = Blag.where("slug like ?", term).includes(:images, :tags).limit(@post_view_count).order('updated_at desc')
-		unless @blags.empty?
+		unless @blags.empty? || params[:search].length == 0
 			render partial: "blag", collection: @blags
 		else
-			puts "i'm here"
 			@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('updated_at desc')
-			render "index", layout: false, locals:{n: params[:n]}
+			render "index", layout: false, locals:{n: n}
 		end
 	end
 
