@@ -5,10 +5,8 @@ class BlagsController < ActionController::Base
 	include PageHelper
 
 	def index
-		n ||= params[:n].to_i
-		n ||= 0
-		puts n
-		get_pages(n)
+		params[:n] ||= 0
+		get_pages(params[:n].to_i)
 		@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('updated_at desc')
 	end
 
@@ -46,14 +44,12 @@ class BlagsController < ActionController::Base
 	def search
 		term = "%#{params[:search]}%"
 		term = term.gsub(/ /, '-')
-		n = params[:n].to_i
-		get_pages(n)
+		get_pages(0)
 		@blags = Blag.where("slug like ?", term).includes(:images, :tags).limit(@post_view_count).order('updated_at desc')
 		unless @blags.empty? || params[:search].length == 0
 			render partial: "blag", collection: @blags
 		else
-			@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('updated_at desc')
-			render "index", layout: false, locals:{n: n}
+			render nothing: true
 		end
 	end
 
