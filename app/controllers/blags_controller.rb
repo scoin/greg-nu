@@ -42,6 +42,8 @@ class BlagsController < ActionController::Base
 	end
 
 	def search
+		# set_title(params[:search])
+		# render "header"
 		term = "%#{params[:search]}%"
 		term = term.gsub(/ /, '-')
 		get_pages(0)

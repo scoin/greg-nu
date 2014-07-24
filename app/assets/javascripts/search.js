@@ -8,13 +8,12 @@ SEARCH.go = function(){
 SEARCH.enter = function(k){
 		$.get('/search', {search: $("#search").val()})
 			.done(function(data){
-				if(data != ""){
-					$('#main').html(data);
-				}
+				$('#main').html(data);
 				if(data.length == 1){
 					$.each($(savedPage), function(index, value){
 						$('#main').append($(value));
 					})
+					// $("#search").animate turn bgcolor to red and flash
 				}
 			})
 }
