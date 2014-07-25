@@ -13,7 +13,6 @@ SEARCH.enter = function(k){
 					$.each($(savedPage), function(index, value){
 						$('#main').append($(value));
 					})
-					// $("#search").animate turn bgcolor to red and flash
 				}
 			})
 }
