@@ -6,10 +6,20 @@ SEARCH.go = function(){
 	$('#search').focus();
 }
 SEARCH.enter = function(k){
+	$.ajaxSetup({async:false});
 		$.get('/search', {search: $("#search").val()})
 			.done(function(data){
-				$('#main').html(data);
-				if(data.length == 1){
+				console.log(data.length)
+				if(data.length === 1){
+					$("#search").css({"background-color" : "#F76060"});
+				}
+				if(data.length > 3){
+					$('#main').html(data);
+					$("#search").css({"background-color" : "#F7F7F7"});
+				}
+				if(data.length === 3){
+				 	$("#search").css({"background-color" : "#F7F7F7"});
+				 	$('#main').html("");
 					$.each($(savedPage), function(index, value){
 						$('#main').append($(value));
 					})

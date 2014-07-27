@@ -78,7 +78,7 @@
 
 .blag_content p{
 	float: left;
-	text-indent: 4em;
+/*	text-indent: 4em;*/
 	margin-bottom: 1em;
 	background-color: #F7F7F7;
 	border-radius: 1em;

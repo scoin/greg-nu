@@ -55,10 +55,12 @@ class BlagsController < ActionController::Base
 		term = term.gsub(/ /, '-')
 		get_pages(0)
 		@blags = Blag.where("slug like ?", term).includes(:images, :tags).limit(@post_view_count).order('updated_at desc')
-		unless @blags.empty? || params[:search].length == 0
-			render partial: "blag", collection: @blags
-		else
+		if @blags.empty?
 			render nothing: true
+		elsif params[:search].length == 0
+			render plain: "lol"
+		else
+			render partial: "blag", collection: @blags
 		end
 	end
 
