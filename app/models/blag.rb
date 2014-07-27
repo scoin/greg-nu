@@ -6,6 +6,6 @@ class Blag < ActiveRecord::Base
 
 	private
 	def make_slug
-		self.slug = self.title.gsub(/ /,'-').downcase
+		self.slug = self.title.gsub(/[!@#$%^&**();:'"\/\\.<>~`,]/, '').gsub(/ /,'-').downcase
 	end
 end
