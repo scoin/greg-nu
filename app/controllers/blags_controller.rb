@@ -35,7 +35,14 @@ class BlagsController < ActionController::Base
 	end
 
 	def add_images
+		puts params
+		@image = Image.new
+	end
 
+	def save_images
+		@image = Image.new(image_params(params[:image]))
+		@image.save
+		redirect_to root_path
 	end
 
 	def destroy
@@ -58,6 +65,10 @@ class BlagsController < ActionController::Base
 	private
 
 	def blag_params(params)
-    params.permit(:title, :content)
-  end
+    	params.permit(:title, :content)
+  	end
+
+  	def image_params(params)
+  		params.permit(:url, :blag_id)
+  	end
 end

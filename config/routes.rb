@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :edit, :update, :new, :create] 
       resources :blags, only: [:edit, :update, :new, :create, :destroy]
       get '/add_images/:id', to: 'blags#add_images', as: 'add_images'
-      put '/add_images', to: 'blags#add_images'
+      post '/save_images', to: "blags#save_images", as: 'save_images'
+      # put '/add_images', to: 'blags#add_images'
       get '/', to: 'users#login'
       get '/login', to: 'users#login', as: 'login'
       post '/login', to: 'users#auth'
