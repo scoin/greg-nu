@@ -5,7 +5,7 @@ module SearchHelper
 	end
 
 	def get_paragraphs
-		paragraphs = @blag.content.split('\r\n')
+		paragraphs = @blag.content.split("\r\n")
 	end
 
 end
