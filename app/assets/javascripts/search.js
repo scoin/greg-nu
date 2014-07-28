@@ -6,7 +6,6 @@ SEARCH.go = function(){
 	$('#search').focus();
 }
 SEARCH.enter = function(k){
-	$.ajaxSetup({async:false});
 		$.get('/search', {search: $("#search").val()})
 			.done(function(data){
 				console.log(data.length)
