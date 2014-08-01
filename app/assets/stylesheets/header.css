@@ -11,14 +11,16 @@ header{
 	border-bottom-style: inset;
 	border-bottom-color: #403B39;
 	padding-top: .5em;
-	padding-bottom: 1em;
 	margin-bottom: 1em;
 	background-color: #F7F7F7;
+	height: 6.75em;
 }
 
 header a{
 	text-decoration: none;
 	color: #403B39;
+	margin: .25em 0 0 .25em;
+	font-weight: 500;
 }
 
 #search{
@@ -60,7 +62,7 @@ textarea:focus, input:focus{
 }
 
 #whoiam{
-	margin: 0 auto;
+	margin: .9em auto 0 auto;
 	width: 25%;
 	text-align: center;
 	font-size: 1em;
