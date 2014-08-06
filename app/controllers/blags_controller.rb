@@ -1,7 +1,6 @@
 class BlagsController < ActionController::Base
 	layout "application.haml"
 	include TitleHelper
-	include SearchHelper
 	include PageHelper
 
 	def index
@@ -12,7 +11,7 @@ class BlagsController < ActionController::Base
 
 	def show
 		@blag = Blag.find_by(slug: params[:slug])
-		@paragraphs = get_paragraphs
+		@paragraphs = @blag.get_paragraphs
 		set_title(@blag.title)
 	end
 
@@ -26,12 +25,17 @@ class BlagsController < ActionController::Base
 
 	def new
 		@blag = Blag.new
+		@image = Image.new
 	end
 
 	def create
 		@blag = Blag.new(blag_params(params[:blag]))
 		@blag.save
-		redirect_to add_images_path id: @blag.id
+		params[:image][:blag_id] = @blag.id
+		@image = Image.new(image_params(params[:image]))
+		@image.save
+		redirect_to root_path
+
 	end
 
 	def add_images
@@ -49,8 +53,6 @@ class BlagsController < ActionController::Base
 	end
 
 	def search
-		# set_title(params[:search])
-		# render "header"
 		term = "%#{params[:search]}%"
 		term = term.gsub(/ /, '-')
 		get_pages(0)

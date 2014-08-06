@@ -1,4 +1,6 @@
 =form_for @blag, url: {action: 'create', method: 'post'}, html:{class:'new_blag' } do |f|
 	.enter=f.text_field :title, placeholder: "title"
 	.enter=f.text_area :content, size: "60x12", placeholder: "content"
+	=fields_for @image do |i|
+		.enter=i.text_field :url, placeholder: "header image url"
 	.enter=f.submit "Blag"
