@@ -29,23 +29,14 @@ class BlagsController < ActionController::Base
 	end
 
 	def create
-		@blag = Blag.new(blag_params(params[:blag]))
-		@blag.save
-		params[:image][:blag_id] = @blag.id
-		@image = Image.new(image_params(params[:image]))
-		@image.save
-		redirect_to root_path
-
-	end
-
-	def add_images
-		puts params
-		@image = Image.new
-	end
-
-	def save_images
-		@image = Image.new(image_params(params[:image]))
-		@image.save
+		blag = Blag.new(blag_params(params[:blag]))
+		blag.save
+		image = blag.images.new(image_params(params[:image]))
+		image.save
+		params[:tags].split(',').each do |tag|
+			newtag = Tag.find_or_create_by(name: tag.strip)
+			Blagtag.create(blag_id: blag.id, tag_id: newtag.id)
+		end
 		redirect_to root_path
 	end
 
@@ -73,6 +64,6 @@ class BlagsController < ActionController::Base
   	end
 
   	def image_params(params)
-  		params.permit(:url, :blag_id)
+  		params.permit(:url)
   	end
 end

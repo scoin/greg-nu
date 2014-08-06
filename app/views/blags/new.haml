@@ -3,4 +3,5 @@
 	.enter=f.text_area :content, size: "60x12", placeholder: "content"
 	=fields_for @image do |i|
 		.enter=i.text_field :url, placeholder: "header image url"
+	.enter=text_field_tag :tags, nil, placeholder: "tags by comma"
 	.enter=f.submit "Blag"

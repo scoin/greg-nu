@@ -1,4 +1,0 @@
-=form_for @image, url: {action: 'save_images', method: 'post'}, html:{class:'add_image' } do |f|
-	.enter=f.text_field :url, placeholder: "image url"
-	=f.hidden_field :blag_id, value: params[:id]
-	.enter=f.submit "Post Image"
