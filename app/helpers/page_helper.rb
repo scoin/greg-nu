@@ -7,4 +7,8 @@ module PageHelper
 		@to_display = n * @post_view_count
 	end
 
+	def current_page
+		current = request.env['PATH_INFO']
+	end
+
 end

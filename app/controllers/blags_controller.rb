@@ -7,12 +7,24 @@ class BlagsController < ActionController::Base
 		params[:n] ||= 0
 		get_pages(params[:n].to_i)
 		@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('updated_at desc')
+		@blagcount = Blag.all.count
 	end
 
 	def show
 		@blag = Blag.find_by(slug: params[:slug])
+		@tags = @blag.tags
 		@paragraphs = @blag.get_paragraphs
 		set_title(@blag.title)
+	end
+
+	def bytag
+		@tag = Tag.find_by(name: params[:tag])
+		params[:n] ||= 0
+		get_pages(params[:n].to_i)
+		set_title("tagged with " + @tag.name)
+		@blags = @tag.blags.includes(:images).limit(@post_view_count).offset(@to_display).order('updated_at desc')
+		@blagcount = @tag.blags.count
+		render :index, n: params[:n]
 	end
 
 	def edit
@@ -47,7 +59,7 @@ class BlagsController < ActionController::Base
 		term = "%#{params[:search]}%"
 		term = term.gsub(/ /, '-')
 		get_pages(0)
-		@blags = Blag.where("slug like ?", term).includes(:images, :tags).limit(@post_view_count).order('updated_at desc')
+		@blags = Blag.where("slug like ?", term).includes(:images, :tags).order('updated_at desc')
 		if @blags.empty?
 			render nothing: true
 		elsif params[:search].length == 0
