@@ -102,15 +102,13 @@
 	font-size: .8em;
 }
 
-.tag{
+.tag_link, .blag_content a{
 	margin-left: .3em;
 	background-color: #F5F5F5;
 	background-color: rgba(117,117,117,0.15);
 	font-family: 'Roboto Slab', serif;
 	font-weight: 700;
-}
-
-.tag_link{
 	text-decoration: none;
 	color: #222222;
+	line-height: 100%;
 }
