@@ -79,6 +79,7 @@
 
 .blag_content p{
 	margin-bottom: 1em;
+	background-color: #f2f2f2;
 }
 
 .blag_content img{
@@ -86,6 +87,10 @@
 	margin: 0 auto;
 	max-width: 100%;
 	max-height: 40%;
+}
+
+.blag_content li{
+	text-indent: 2em;
 }
 
 .blag_tags{
