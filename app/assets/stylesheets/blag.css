@@ -103,7 +103,7 @@
 }
 
 .tag_link, .blag_content a{
-	margin-left: .3em;
+	margin-left: auto;
 	background-color: #F5F5F5;
 	background-color: rgba(117,117,117,0.15);
 	font-family: 'Roboto Slab', serif;
