@@ -2,5 +2,6 @@
 .blag_content<
 	=@content.html_safe
 	.blag_tags<
-		filed under: 
+		%span.small
+			tags
 		=render partial: "tag", collection: @tags

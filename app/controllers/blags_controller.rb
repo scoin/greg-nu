@@ -13,7 +13,6 @@ class BlagsController < ActionController::Base
 	def show
 		@blag = Blag.find_by(slug: params[:slug])
 		@tags = @blag.tags
-		# @paragraphs = @blag.get_paragraphs
 		set_title(@blag.title)
 		markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 		@content = markdown.render(@blag.content)

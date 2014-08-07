@@ -3,7 +3,11 @@ body{
 
 .container{
 	background-color: #EDEDED;
-	height: 80em;
+}
+
+#main{
+	height: 100%;
+	min-height: 50em;
 }
 
 header{
