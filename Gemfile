@@ -1,3 +1,4 @@
+ruby '2.1.1'
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -29,10 +30,10 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'haml'
 gem 'rails_12factor', group: :production
-
-ruby '2.1.1'
 # Use unicorn as the app server
  gem 'unicorn'
+
+ gem 'redcarpet'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

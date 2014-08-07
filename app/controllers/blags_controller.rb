@@ -13,8 +13,10 @@ class BlagsController < ActionController::Base
 	def show
 		@blag = Blag.find_by(slug: params[:slug])
 		@tags = @blag.tags
-		@paragraphs = @blag.get_paragraphs
+		# @paragraphs = @blag.get_paragraphs
 		set_title(@blag.title)
+		markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+		@content = markdown.render(@blag.content)
 	end
 
 	def bytag
@@ -24,7 +26,7 @@ class BlagsController < ActionController::Base
 		set_title("tagged with " + @tag.name)
 		@blags = @tag.blags.includes(:images).limit(@post_view_count).offset(@to_display).order('updated_at desc')
 		@blagcount = @tag.blags.count
-		render :index, n: params[:n]
+		render :index
 	end
 
 	def edit
