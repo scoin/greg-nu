@@ -112,3 +112,11 @@
 	color: #222222;
 	line-height: 100%;
 }
+
+code{
+	background-color: #B0B0B0;
+	color: #222222;
+	font-family: monospace;
+	text-indent: 2em;
+	display: block;
+}
