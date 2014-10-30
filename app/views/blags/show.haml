@@ -1,6 +1,10 @@
 =render partial: @blag
 .blag_content<
 	=@content.html_safe
+	.blag_meta
+		posted by greg
+		=time_ago_in_words(@blag.created_at)
+		ago
 	.blag_tags<
 		%span.small
 			tags

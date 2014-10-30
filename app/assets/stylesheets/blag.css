@@ -93,9 +93,14 @@
 	text-indent: 2em;
 }
 
+.blag_meta{
+	margin-top: 2em;
+	text-align: center;
+}
+
 .blag_tags{
 	text-align: center;
-	margin-top: 3em;
+	margin-top: 2em;
 }
 
 .small{
