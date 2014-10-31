@@ -6,7 +6,7 @@ class BlagsController < ActionController::Base
 	def index
 		params[:n] ||= 0
 		get_pages(params[:n].to_i)
-		@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('updated_at desc')
+		@blags = Blag.includes(:images, :tags).limit(@post_view_count).offset(@to_display).order('created_at desc')
 		@blagcount = Blag.all.count
 	end
 
