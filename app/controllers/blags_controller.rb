@@ -14,6 +14,8 @@ class BlagsController < ActionController::Base
 		@blag = Blag.find_by(slug: params[:slug])
 		@tags = @blag.tags
 		set_title(@blag.title)
+		@blag.hits += 1
+		@blag.save
 		markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 		@content = markdown.render(@blag.content)
 	end
